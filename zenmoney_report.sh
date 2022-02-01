@@ -52,8 +52,8 @@ function check_params() {
 # 2. Подставляет в него ГОД и МЕСЯЦ
 function create_sql_script() {
     cp $SQL_SCRIPT $SQL_SCRIPT_TMP
-    sed -i 's/_PASTE_YEAR_HERE_/2021/g' $SQL_SCRIPT_TMP
-    sed -i 's/_PASTE_MONTH_HERE_/11/g' $SQL_SCRIPT_TMP
+    sed -i 's/_PASTE_YEAR_HERE_/'${DATE:0:4}'/g' $SQL_SCRIPT_TMP
+    sed -i 's/_PASTE_MONTH_HERE_/'${DATE:5:2}'/g' $SQL_SCRIPT_TMP
 }
 
 # Импортирует csv-файл, запускает скрипт и экспортирует результат.
